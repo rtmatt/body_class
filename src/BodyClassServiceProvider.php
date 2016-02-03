@@ -1,6 +1,7 @@
 <?php
 
-namespace BodyClass;
+namespace Rtmatt\BodyClass;
+
 
 use Illuminate\Support\ServiceProvider;
 use Jenssegers\Agent\Agent;
