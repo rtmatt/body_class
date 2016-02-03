@@ -60,8 +60,9 @@ class BodyClassServiceProvider extends ServiceProvider
         if($ipad = $agent->is('iPad')) {
             $browser_css_classes[] = 'device-ipad';
         }
-
+        $other_browser = $agent->browser();
         if($agent->browser() == "Safari") {
+            $other_browser=false;
             $browser_css_classes[] = 'browser-safari';
             if($agent->version('Safari')<5){
                 $unsupported['browser'] = 'Safari';
@@ -69,6 +70,7 @@ class BodyClassServiceProvider extends ServiceProvider
         }
 
         if($agent->browser() == "Chrome") {
+           $other_browser=false;
             $browser_css_classes[] = 'browser-chrome';
             $browser_css_classes[] = 'browser-chrome-'.(int)$agent->version('Chrome');
             if($agent->version('Chrome')<30){
@@ -77,6 +79,7 @@ class BodyClassServiceProvider extends ServiceProvider
         }
 
         if($agent->browser() == "Firefox") {
+            $other_browser=false;
             $browser_css_classes[] = 'browser-firefox';
             $browser_css_classes[] = 'browser-firefox-'.(int)$agent->version('Firefox');
             if($agent->version('Firefox')<25){
@@ -88,6 +91,7 @@ class BodyClassServiceProvider extends ServiceProvider
             $version = $agent->version("IE");
             $version = str_replace('.0','',$version);
 
+            $other_browser=false;
             $browser_css_classes[] = 'browser-ie';
             $browser_css_classes[] = 'browser-ie-'.(int)$version;
             if((int)$version<10){
@@ -99,6 +103,11 @@ class BodyClassServiceProvider extends ServiceProvider
             $browser_css_classes[] = 'browser-ie'.$version;
         }
 
+        if($other_browser){
+            $browser_css_classes[] = 'browser-'.strtolower($other_browser);
+            $version = (int)$agent->version($other_browser);
+            $browser_css_classes[] = 'browser-'.strtolower($other_browser).'-'.$version;
+        }
         if($agent->is('Windows')) {
             $browser_css_classes[] = 'os-windows';
         }
