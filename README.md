@@ -1,4 +1,4 @@
-# Body Class
+#  Body Class
 
 Laravel Service provider built around [Agent](https://github.com/jenssegers/agent) to add browser classes to the body  HTML tag.
 
