@@ -113,7 +113,7 @@ class BodyClassServiceProvider extends ServiceProvider
             $unsupported=[];
         }
         $browser_css_classes = implode(' ', $browser_css_classes);
-        
+
         return $browser_css_classes;
 
     }

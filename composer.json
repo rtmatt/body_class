@@ -1,0 +1,22 @@
+{
+  "name": "rtmatt/body-class",
+  "description": "quick browser body class service provider for laravel 5",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": ":RT Matt",
+      "email": "matt@redtrainwebservices.com",
+      "homepage": "http://www.redtrainwebservices.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0",
+    "jenssegers/agent": "^2.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Rtmatt\\BodyClass\\": "src"
+    }
+  }
+}
